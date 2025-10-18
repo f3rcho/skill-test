@@ -5,6 +5,7 @@ const {
   getStudentDetail,
   setStudentStatus,
   updateStudent,
+  deleteStundentById,
 } = require('./students-service');
 
 const handleGetAllStudents = asyncHandler(async (req, res) => {
@@ -43,10 +44,16 @@ const handleStudentStatus = asyncHandler(async (req, res) => {
   res.json(studentStatus);
 });
 
+const handleDeleteStudent = asyncHandler(async (req, res) => {
+  const { id: studentId } = req.params;
+  const student = await deleteStundentById(studentId);
+  res.json(student);
+});
 module.exports = {
   handleGetAllStudents,
   handleGetStudentDetail,
   handleAddStudent,
   handleStudentStatus,
   handleUpdateStudent,
+  handleDeleteStudent,
 };
