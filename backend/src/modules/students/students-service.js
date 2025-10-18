@@ -4,6 +4,7 @@ const {
   findStudentDetail,
   findStudentToSetStatus,
   addOrUpdateStudent,
+  removeStundentById,
 } = require('./students-repository');
 const { findUserById } = require('../../shared/repository');
 
@@ -86,7 +87,7 @@ const setStudentStatus = async ({ userId, reviewerId, status }) => {
 
 const deleteStundentById = async (studentId) => {
   await checkStudentId(studentId);
-  const affectedRow = await deleteStundentById(studentId);
+  const affectedRow = await removeStundentById(studentId);
   if (affectedRow <= 0) {
     throw new ApiError(500, 'Unable to delete student');
   }

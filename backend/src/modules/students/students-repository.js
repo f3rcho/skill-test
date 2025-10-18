@@ -111,7 +111,7 @@ const findStudentToUpdate = async (paylaod) => {
     return rows;
 }
 
-const deleteStundentById = async (studentId) => {
+const removeStundentById = async (studentId) => {
     const query = `
         DELETE FROM users
         WHERE id = $1;
@@ -128,5 +128,5 @@ module.exports = {
     findStudentDetail,
     findStudentToSetStatus,
     findStudentToUpdate,
-    deleteStundentById
+    removeStundentById
 };
